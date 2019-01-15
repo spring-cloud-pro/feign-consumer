@@ -4,7 +4,7 @@ import com.levyx.feignconsumer.model.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("hello-service")
+@FeignClient(name="hello-service",fallback = HelloServiceFallback.class)
 public interface HelloService {
 
     @RequestMapping("hello")
